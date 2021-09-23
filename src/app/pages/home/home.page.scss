@@ -1,27 +1,23 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+ion-header {
+  --padding-top: 50px;
+  --padding-bottom: 20px;
+  --padding-end: 20px;
+  --padding-start: 20px;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+ion-title {
+  font-size: 0.8em;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+ion-header {
+  background-color: warning;
 }
 
-#container a {
-  text-decoration: none;
+ion-label {
+  width: 130px;
+}
+
+ion-input, ion-select {
+  color: gray;
+  text-align: right;
 }

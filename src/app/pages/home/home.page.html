@@ -1,20 +1,34 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
+<!-- Comienza el Header -->
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-title class="ion-text-left ion-text">
+      RegistroApp
     </ion-title>
   </ion-toolbar>
 </ion-header>
+<!-- Termina el Header -->
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<!-- Comienza el Content -->
+<ion-content [fullscreen]="true" class="ion-padding-horizontal">
+  <ion-title class="ion-padding-top">
+    <ion-label>
+      <h1 class="ion-text-center">¡Bienvenido!</h1>
+      
+      <p *ngIf="usuario">Usuario: {{ usuario.nombreUsuario }}</p>
+    </ion-label>
+  </ion-title>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
 </ion-content>
+<!-- Termina el Content -->
+
+<!-- Comienza el Footer -->
+<ion-footer>
+  <ion-toolbar color="warning">
+    <ion-title class="ion-text-left ion-text">
+      App desarrollada por Grupo 03 Sección 09d
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>
+<!-- Termina el Header -->
+
+
