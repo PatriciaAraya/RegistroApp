@@ -1,0 +1,20 @@
+*{
+  font-family: 'Lato', sans-serif;
+}
+
+ion-header {
+  --padding-top: 50px;
+  --padding-bottom: 20px;
+  --padding-end: 20px;
+  --padding-start: 20px;
+}
+
+
+ion-button{
+  border-radius: 300px;
+  height: 60px;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+

@@ -1,0 +1,101 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Router Link</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+  <link rel="stylesheet" href="home.page.scss">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ion-safe-area-top: 20px;
+      --ion-safe-area-bottom: 22px;
+    }
+  </style>
+  
+</head>
+
+<Body>
+
+  <ion-menu side="start" menuId="first" contentId="main">
+    <ion-header>
+      <ion-toolbar color="warning">
+        <ion-title>Configuracion</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item> <ion-icon name="person-outline"></ion-icon>  Mi sesion</ion-item>
+        <ion-item><ion-icon name="moon-outline"></ion-icon>  Modo oscuro</ion-item>
+        <ion-item><ion-icon name="cog-outline"></ion-icon> Configuracion</ion-item>
+        <ion-item><ion-icon name="log-out-outline"></ion-icon> <a href="/login">Salir</a></ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="main"></ion-router-outlet>
+  
+  
+
+  <ion-content>
+    <ion-title class="ion-padding-top ion-text-center">
+      <figure>
+          <img #titulo src="assets/img/Logo.png" alt="Logo ResgistrApp">
+      </figure>
+      
+    </ion-title>
+    
+
+    <div>
+        <!-- Fallback for iOS PWA -->
+        <input #fileinput type="file" accept="image/*;capture=camera" hidden (change)="handleFile($event.target.files)">
+        <!-- Trigger the file input -->
+        <ion-button  (click)="captureImage()" color="warning">
+          <ion-icon slot="start" name="camera"></ion-icon>
+          Imagen desde galeria
+        </ion-button>
+    </div> 
+
+
+    <div>
+        <ion-button  (click)="startScan()" color="warning">
+          <ion-icon name="qr-code-outline"></ion-icon>
+            Escanear QR
+        </ion-button>
+        <ion-button (click)="reset()" color="warning" *ngIf="scanResult">
+          <ion-icon slot="start" name="refresh"></ion-icon>
+          Reset
+        </ion-button>
+        <!-- Shows our camera stream -->
+        <video #video [hidden]="!scanActive" width="100%"></video>
+        <!-- Used to render the camera stream images -->
+        <canvas #canvas hidden></canvas>
+        <!-- Stop our scanner preview if active -->
+        <ion-button  (click)="stopScan()" color="danger" *ngIf="scanActive" style="height:30px;">
+        <ion-icon name="start"></ion-icon>
+          Stop scan
+        </ion-button>
+    </div>
+
+    <div>
+        <ion-button color="warning">
+          <ion-icon name="stats-chart-outline"></ion-icon>
+          Mis estadisticas
+        </ion-button>
+    </div>
+
+
+
+        <ion-card *ngIf="scanResult">
+          <ion-card-header>
+            <ion-card-title>QR Code</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            {{ scanResult }}
+          </ion-card-content>
+        </ion-card>   
+  </ion-content>
+</Body>
